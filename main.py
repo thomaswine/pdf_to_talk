@@ -12,9 +12,9 @@ pdf_text = page.extract_text()
 
 print(pdf_text) 
 
-#file = open("sample_pdf.pdf", "r").read().replace("\n", " ")
+file = open("sample.txt", "r").read().replace("\n", " ")
 
-tts = gTTS(text=pdf_text, lang="fr")
+tts = gTTS(text=pdf_text, lang="es")
 
 filename = "voice.mp3"
 tts.save(filename)
