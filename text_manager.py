@@ -13,7 +13,7 @@ class CreateText:
             pdf_text = page.extract_text()
             final_text += pdf_text
         
-        return final_text
+        return(final_text)
     
     def create_top_list_from_webpage(page_url):
         response = requests.get(page_url)
@@ -26,7 +26,7 @@ class CreateText:
         
         for movie in all_movies:
             movie_title = movie.getText()
-            movies_list += f"{movie_title}\n\n"
+            movies_list += f"{movie_title}\n"
         
         return(movies_list)
         
