@@ -3,18 +3,17 @@ from PyPDF2 import PdfReader
 import os
 
 reader = PdfReader("sample.pdf")
-
+final_text = ""
 print(len(reader.pages))
 
-page = reader.pages[0]
+for page_number in range(len(reader.pages)):
+    page = reader.pages[page_number]
+    pdf_text = page.extract_text()
+    final_text += pdf_text
+    
+print(final_text)
 
-pdf_text = page.extract_text()
-
-print(pdf_text) 
-
-file = open("sample.txt", "r").read().replace("\n", " ")
-
-tts = gTTS(text=pdf_text, lang="es")
+tts = gTTS(text=final_text, lang="en", slow=False)
 
 filename = "voice.mp3"
 tts.save(filename)
